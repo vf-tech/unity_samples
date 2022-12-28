@@ -14,8 +14,12 @@ int osCirBufCreate(osCirBuf *cb, uint8_t *bytes, uint32_t size)
 
 int osCirBufClear(osCirBuf *cb)
 {
-  if( ( cb == NULL ) || ( cb->ptr == NULL ) || ( cb->bufsize == 0 ) )
-    return -1;
+  if( cb == NULL )
+	  return -1;
+  if( cb->ptr == NULL )
+	  return -1;
+  if( cb->bufsize == 0 )
+	 return -1;
   memset(cb->ptr, 0x00, cb->bufsize);
   cb->head = cb->ptr;
   cb->tail = cb->ptr;

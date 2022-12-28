@@ -32,6 +32,9 @@ extern void test_CBNullError_osCirBufCreate(void);
 extern void test_BufferNullError_osCirBufCreate(void);
 extern void test_isWorking_osCirBufCreate(void);
 extern void test_CheckInitVariables_osCirBufCreate(void);
+extern void test_PointerNullError_osCirBufClear(void);
+extern void test_BufferNullError_osCirBufClear(void);
+extern void test_BufferSizeZeroError_osCirBufClear(void);
 
 /*=======Test Reset Option=====*/
 void resetTest(void);
@@ -52,6 +55,10 @@ int main(void)
   RUN_TEST(test_BufferNullError_osCirBufCreate, __LINE__);
   RUN_TEST(test_isWorking_osCirBufCreate, __LINE__);
   RUN_TEST(test_CheckInitVariables_osCirBufCreate, __LINE__);
+  //
+  RUN_TEST(test_PointerNullError_osCirBufClear, __LINE__);
+  RUN_TEST(test_BufferNullError_osCirBufClear, __LINE__);
+  RUN_TEST(test_BufferSizeZeroError_osCirBufClear, __LINE__);
   //
 
 

@@ -17,6 +17,7 @@ void setUp(void)
 
 void tearDown(void)
 {
+	memset(&test_cb, 0x00, sizeof(test_cb));
 }
 
 void test_IgnoredTest(void)
@@ -65,3 +66,20 @@ void test_CheckInitVariables_osCirBufCreate(void)
 	TEST_ASSERT_EQUAL (0, test_cb.used);
 	TEST_ASSERT_EQUAL (SIZE_CB_BUFF, test_cb.bufsize);
 }
+
+void test_PointerNullError_osCirBufClear(void)
+{
+	TEST_ASSERT_EQUAL(-1, osCirBufClear( NULL ));
+}
+
+void test_BufferNullError_osCirBufClear(void)
+{
+	TEST_ASSERT_EQUAL(-1, osCirBufClear( &test_cb ));
+}
+
+void test_BufferSizeZeroError_osCirBufClear(void)
+{
+	test_cb.ptr = test_cb_buff;
+	TEST_ASSERT_EQUAL(-1, osCirBufClear( &test_cb ));
+}
+
